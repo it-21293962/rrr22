@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">ExportLankaNew</string>
+    <string name="payments">payments</string>
+    <string name="my_orders">My Orders</string>
+    <string name="add_order">Add Order</string>
+    <string name="_50">50</string>
+    <string name="_3">3</string>
+    <string name="_3kg">3kg</string>
+    <string name="ceylon_tea">Ceylon Tea</string>
+    <string name="budget">Budget</string>
+    <string name="weight">Weight</string>
+    <string name="product_name">product Name</string>
+    <string name="quantity_packs">Quantity(packs)</string>
+    <string name="delete">Delete</string>
+    <string name="_50aa">50</string>
+    <string name="budgeta">Budget</string>
+    <string name="aaa">3</string>
+    <string name="quantity_packetss">Quantity(Packets)</string>
+    <string name="_3kgss">3kg</string>
+    <string name="weightss">Weight</string>
+    <string name="ceylon_teas">Ceylon Tea</string>
+    <string name="view">View</string>
+    <string name="update">UPDATE</string>
+    <string name="ceylon_teaaaaa">Ceylon Tea</string>
+    <string name="aaaaaaaaaaaaa">5</string>
+    <string name="_4kgaaaaaaa">4kg</string>
+    <string name="_10aaaaaaaa">10$</string>
+</resources>
