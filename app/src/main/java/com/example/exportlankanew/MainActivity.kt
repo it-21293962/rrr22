@@ -3,13 +3,11 @@ package com.example.exportlankanew
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+//import com.google.android.material.search.SearchView
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import java.util.*
@@ -88,6 +86,40 @@ class MainActivity : AppCompatActivity() {
     private fun getOrders() {
         val orderList = db.getAllOrders()
         adapter?.addItems(orderList)
+
+
+
+        val searchView: SearchView = findViewById(R.id.searchView) as SearchView
+
+
+
+
+    searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String): Boolean {
+//                (this@MainActivity.listBarang.filter(query) as Filterable).filter(query)
+                if(query == ""){
+                    adapter?.addItems(orderList)
+
+                }else {
+                    var l = orderList.filter{i -> i.productName!!.contains(query, true)} as java.util.ArrayList<order>
+                    adapter?.addItems(l)
+                }
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String): Boolean {
+//                (this@MainActivity.listBarang.filter as Filterable).filter(newText)
+//                listBarang.filter{i -> i.name == newText}
+
+                if(newText == ""){
+                    adapter?.addItems(orderList)
+                }else {
+                    var l = orderList.filter{i -> i.productName!!.contains(newText, true)} as java.util.ArrayList<order>
+                    adapter?.addItems(l)
+                }
+                return false
+            }
+        })
     }
 
     private fun updateOrder() {
@@ -146,6 +178,7 @@ class MainActivity : AppCompatActivity() {
         quantity = findViewById(R.id.aoquantitybox)
         budget = findViewById(R.id.aobudgetbox)
         btnUpdate = findViewById(R.id.updateBtn)
+
     }
 
     private fun initRecyclerView(){
