@@ -15,6 +15,8 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/top_background" />
 
+
+
     <TextView
         android:id="@+id/textView18"
         android:layout_width="160dp"
@@ -30,11 +32,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <TextView
         android:id="@+id/aoquantity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="80dp"
+        android:layout_marginTop="8dp"
         android:text="@string/quantity_packs"
         android:textColor="@color/black"
         android:textStyle="bold"
@@ -45,19 +49,20 @@
         android:id="@+id/aoname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
         android:text="@string/product_name"
         android:textColor="@color/black"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
-
     <TextView
         android:id="@+id/aoweight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="84dp"
         android:text="@string/weight"
         android:textColor="@color/black"
         android:textStyle="bold"
@@ -68,8 +73,8 @@
         android:id="@+id/aobudget"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="84dp"
-        android:layout_marginEnd="48dp"
+        android:layout_marginTop="96dp"
+        android:layout_marginEnd="64dp"
         android:text="@string/budget"
         android:textColor="@color/black"
         android:textStyle="bold"
@@ -80,8 +85,8 @@
         android:id="@+id/viewbutton"
         android:layout_width="111dp"
         android:layout_height="55dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="20dp"
         android:text="@string/view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -90,8 +95,8 @@
         android:id="@+id/aobutton"
         android:layout_width="111dp"
         android:layout_height="55dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="20dp"
         android:text="@string/add_order"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/aobudgetbox" />
@@ -101,16 +106,18 @@
         android:layout_width="111dp"
         android:layout_height="55dp"
         android:layout_marginEnd="20dp"
+        android:onClick="updateOrder"
         android:text="@string/update"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/aobutton" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler"
-        android:layout_width="410dp"
-        android:layout_height="441dp"
+        android:layout_width="418dp"
+        android:layout_height="226dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        tools:listitem="@layout/single_order" />
 
     <EditText
         android:id="@+id/aoproductnamebox"
@@ -128,8 +135,8 @@
         android:id="@+id/aoquantitybox"
         android:layout_width="100dp"
         android:layout_height="50dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="11dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="@string/aaaaaaaaaaaaa"
         android:inputType="textPersonName"
@@ -141,7 +148,7 @@
         android:layout_width="100dp"
         android:layout_height="50dp"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="@string/_4kgaaaaaaa"
         android:inputType="textPersonName"
@@ -152,14 +159,34 @@
         android:id="@+id/aobudgetbox"
         android:layout_width="100dp"
         android:layout_height="50dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="@string/_10aaaaaaaa"
         android:inputType="textPersonName"
         app:layout_constraintStart_toEndOf="@+id/aoquantitybox"
         app:layout_constraintTop_toBottomOf="@+id/aobudget" />
 
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/materialCardView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="12dp"
+        app:cardUseCompatPadding="true"
+        app:layout_constraintBottom_toTopOf="@+id/recycler"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.485"
+        app:layout_constraintStart_toStartOf="parent">
 
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/searchView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:queryHint="Search Orders..."
+            app:iconifiedByDefault="false"
+            app:queryBackground="@android:color/transparent"/>
+
+    </com.google.android.material.card.MaterialCardView>
 </androidx.constraintlayout.widget.ConstraintLayout>
 

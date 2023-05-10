@@ -12,6 +12,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
+import java.util.*
+import kotlin.collections.ArrayList
 
 class MainActivity : AppCompatActivity() {
 
@@ -38,7 +40,7 @@ class MainActivity : AppCompatActivity() {
 
         add.setOnClickListener{ addOrder() }
         btnView.setOnClickListener{ getOrders() }
-       //btnUpdate.setOnClickListener{ updateOrder()}
+       btnUpdate.setOnClickListener{ updateOrder()}
 
         adapter?.setOnClickItem {
             Toast.makeText(this, it.productName, Toast.LENGTH_SHORT).show()
@@ -87,12 +89,12 @@ class MainActivity : AppCompatActivity() {
         val orderList = db.getAllOrders()
         adapter?.addItems(orderList)
     }
-   /* //if update doesnt work check this
+
     private fun updateOrder() {
         val name = pname.text.toString()
-        val weight = weight.text.toString()
-        val quantity = quantity.text.toString()
-        val budget = budget.text.toString()
+        val weight = weight.text.toString().toDouble()
+        val quantity = quantity.text.toString().toInt()
+        val budget = budget.text.toString().toDouble()
     //checking whether record has been changed
         if (name == productOrder?.productName && weight == productOrder?.weight && quantity == productOrder?.quantity && budget == productOrder?.budget) {
             Toast.makeText(this, "Record not changed.", Toast.LENGTH_SHORT).show()
@@ -101,10 +103,11 @@ class MainActivity : AppCompatActivity() {
         if (productOrder == null) return
 
         val productOrder = order(
-            name = productOrder!!.productName,
-            weight = productOrder!!.weight,
-            quantity = productOrder!!.quantity,
-            budget = productOrder!!.budget
+//             productOrder!!.productName,
+//            productOrder!!.weight,
+//            productOrder!!.quantity,
+//            productOrder!!.budget
+        name,weight,quantity,budget
         )
         val status = db.updateOrder(productOrder)
         if (status > -1) {
@@ -114,7 +117,7 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this, "update failed.",Toast.LENGTH_SHORT).show()
         }
 
-    }*/
+    }
 
     private fun deleteOrder(id: Int){
         val builder = AlertDialog.Builder(this)
